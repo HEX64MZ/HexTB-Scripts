@@ -1,0 +1,11 @@
+$epicInstallerUrl = "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi"
+
+$installerPath = "C:\HexTB\Downloads\EpicGamesLauncherInstaller.msi"
+
+New-Item -ItemType Directory -Force -Path "C:\HexTB\Downloads"
+
+Invoke-WebRequest -Uri $epicInstallerUrl -OutFile $installerPath
+
+Start-Process -FilePath $installerPath -Wait
+
+Write-Host "Epic Games Launcher download completed. Please complete the setup process."

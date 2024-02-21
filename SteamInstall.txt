@@ -1,0 +1,11 @@
+$steamInstallerUrl = "https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe"
+
+$installerPath = "C:\HexTB\Downloads\SteamSetup.exe"
+
+New-Item -ItemType Directory -Force -Path "C:\HexTB\Downloads"
+
+Invoke-WebRequest -Uri $steamInstallerUrl -OutFile $installerPath
+
+Start-Process -FilePath $installerPath -Wait
+
+Write-Host "Steam downloaded. Please complete the setup process."
